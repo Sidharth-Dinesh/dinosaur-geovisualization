@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dinosaur Atlas — Life across deep time</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://d3js.org/d3.v7.min.js" defer></script>
+<script src="https://d3js.org/d3-geo-projection.v4.min.js" defer></script>
+<script src="js/data.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<main class="atlas">
+<header class="masthead"><a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">◉</span> DEEP TIME <span class="brand-sub">/ FIELD ATLAS</span></a><span class="edition">PALEONTOLOGY · INTERACTIVE EXPLORER</span></header>
+<section class="intro"><div><p class="eyebrow">THE MESOZOIC WORLD</p><h1>Dinosaur Atlas<span>.</span></h1><p class="subtitle">Explore the geography of prehistoric life, one era at a time.</p></div><div class="range-summary"><span class="eyebrow">SELECTED TIME WINDOW</span><strong id="selected-range">All time periods</strong><span id="record-count" aria-live="polite">Loading records…</span></div></section>
+<section class="workspace" aria-label="Interactive dinosaur atlas">
+<div class="panel-heading"><div><span class="section-number">01</span><h2>Global distribution</h2><span class="tag">PRESENT-DAY GEOGRAPHY</span></div><button id="presentation" type="button" aria-pressed="false">Focus view <span aria-hidden="true">↗</span></button></div>
+<div class="map-layout"><div class="map-wrap"><svg id="geojson-map" role="img" aria-label="World map showing dinosaur records for the selected time window"></svg><span class="map-caption">PATTERSON PROJECTION <span>·</span> Hover over a point to explore</span></div><aside class="legend-panel"><p class="eyebrow">DINOSAUR GROUPS</p><div id="legend"></div><p class="legend-note">Color identifies each group.<br>Points show locations in the original dataset.</p></aside></div>
+<div class="timeline-header"><div><span class="section-number">02</span><h2>Through deep time</h2></div><div class="timeline-tools"><span>Drag to select · Move or resize to explore</span><button id="reset" type="button">Reset selection ↺</button></div></div>
+<div id="timeline-container" aria-label="Timeline: drag horizontally to filter dinosaur records"></div>
+<div class="timeline-footer"><span>← MORE RECENT</span><span>MILLION YEARS AGO</span><span>OLDER →</span></div>
+</section>
+<footer class="page-footer"><span>A journey through the Triassic, Jurassic & Cretaceous.</span><span>Spatial records · Temporal exploration</span></footer>
+<p id="load-error" role="alert" hidden>Unable to load the visualization. Check your internet connection and reload to load the D3 libraries.</p>
+</main>
+<script>window.addEventListener('load', function () { if (!window.d3 || !window.d3.geoPatterson) { document.getElementById('load-error').hidden = false; document.getElementById('record-count').textContent = 'Visualization unavailable'; } });</script>
+</body></html>
